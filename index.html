@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js | filterlist project</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        li{
+            list-style-type: none;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <h1 class="display-4 text-center">Filter List</h1>
+        <input type="text" class="form-control mb-5" placeholder="Enter a Name To Be Search.." id="filterinput">
+        <div class="container">
+        <ul id="name list-unstyled">
+            <li class="alert alert-danger lead" id="filter-header">A</li>
+            <li class="alert filter-names"><a href="#">Abhishek</a></li>
+            <li class="alert filter-names"><a href="#">Aadarsh</a></li>
+            <li class="alert filter-names"><a href="#">Adam</a></li>
+            <li class="alert filter-names"><a href="#">Aurther</a></li>
+
+            <li class="alert alert-danger lead" id="filter-header">B</li>
+            <li class="alert filter-names"><a href="#">Ben</a></li>
+            <li class="alert filter-names"><a href="#">Brad</a></li>
+            <li class="alert filter-names"><a href="#">Brock</a></li>
+            <li class="alert filter-names"><a href="#">Bili</a></li>
+
+            <li class="alert alert-danger lead" id="filter-header">C</li>
+            <li class="alert filter-names"><a href="#">Cristina</a></li>
+            <li class="alert filter-names"><a href="#">Chirstoper</a></li>
+            <li class="alert filter-names"><a href="#">Cenes</a></li>
+            <li class="alert filter-names"><a href="#">Cane</a></li>
+        </ul>
+        </div>
+    </div>
+    <script>
+        //get input element
+        let filterinput = document.getElementById('filterinput');
+        filterinput.addEventListener('keyup',filterName);
+
+        function filterName(){
+            let filterValue = document.getElementById('filterinput').value.toUpperCase();
+            let ul = document.getElementById('name');
+            let lis = document.querySelectorAll('li.filter-names');
+            
+
+            // loop through collection item li
+
+            for(let i=0; i<lis.length;i++){
+                let a = lis[i].getElementsByTagName('a')[0];
+                if(a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+                    lis[i].style.display = '';
+                }
+                else{
+                    lis[i].style.display = 'none';
+                }
+            }
+        }
+    
+    
+    </script>
+</body>
+</html>
